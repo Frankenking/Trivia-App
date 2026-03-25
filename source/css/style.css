@@ -1,77 +1,91 @@
-/* CLASS SPECIFIC SELECTOR STYLES */
+/* body: this style is for the global application of styling, font, and background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #bddeff;
+}
+/* grid: this style is for the body of the page, divided into three rows */
 .grid {
     display: grid;
-    grid-template-areas: "header header header" "main main main" "footer footer footer";
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px auto auto;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: 80px 1fr 80px;
+    height: 100vh;
 }
 
+/* header: this style if for the container that hold everything above main, bolded with increased font size */
 .header {
     grid-area: header;
     display: flex;
-    flex-direction: row;
-    background-color: rgb(211, 211, 211);
-    border: 1px solid #333;
+    align-items: center;
+    justify-content: center;
+    background: #005f33;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 
+/* main: this stlye is for the container that hold everything between the header and footer, in a column */
 .main {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    padding: 20px 20px;
-    background-color: rgb(211, 211, 211);
-    border: 1px solid #333;
-
+    justify-content: center;
+    align-items: center;
 }
 
+
+/* questionSection: this stlye is for the background and container that holds the question, answers, and next button, all in an evenly spaced column */
+.questionSection {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    height: 60%;
+    width: 70%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* questionPrompt: this style is for the actual question being asked, bigger font size, bolded, and a world overflow incase of a long quesiton */
+.questionPrompt {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+/* input: this style stops the radio buttons from actually appearing to enable clicking the answer boxes instead */
+input {
+    display: none;
+}
+
+/* questionAnswerLabel: this style is for the boxes that contain the text answers*/
+.questionAnswerLabel {
+    padding: 15px 15px;
+    margin: 8px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+/* nextButton: this style is for the next button element */
+.nextButton {
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #22c55e;
+    color: white;
+    font-size: 15px;
+}
+
+/* footer: this style is for the container that holds everything below main, specifically the timer, increased font size */
 .footer {
     grid-area: footer;
     display: flex;
-    flex-direction: row;
-    background-color: rgb(211, 211, 211);
-    border: 1px solid #333;
-    flex-shrink: 0;
-
-}
-
-.questionSection {
-    display: flex;
-    flex-direction: column;
-}
-
-.questionPrompt {
-    font-size: large;
-    font-style: italic;
-}
-
-.questionAnswerLabel {
-    height: 30px;
-    width: 100px;
-    padding: 10px 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 2px solid #ccc;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-input:checked + .questionAnswerLabel {
-    border: 2px solid #000000;
-    cursor: pointer;
-}
-
-/* TAG SPECIFIC SELECTOR STYLES */
-body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-section {
-
-}
-
-div {
-
-}
-input {
-    display: none;
+    justify-content: center;
+    align-items: center;
+    background: #005f33;
+    color: white;
+    font-size: 30px;
 }
