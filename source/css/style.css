@@ -60,7 +60,7 @@ input {
 }
 
 /* input: when selected this style is applied*/
-label:focus-within {
+input[type="radio"]:checked+.questionAnswerLabel {
 background-color: #005f33;
 font-weight: bold;
 }
