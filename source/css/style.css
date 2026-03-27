@@ -65,6 +65,10 @@ input {
     border: 2px solid #ddd;
     border-radius: 10px;
 }
+.questionAnswerLabel:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
 
 /* nextButton: this style is for the next button element */
 .nextButton {
@@ -74,6 +78,10 @@ input {
     background: #22c55e;
     color: white;
     font-size: 15px;
+}
+.nextButton:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 /* footer: this style is for the container that holds everything below main, specifically the timer, increased font size */
