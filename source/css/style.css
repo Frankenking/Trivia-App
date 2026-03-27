@@ -61,8 +61,8 @@ input {
 
 /* input: when selected this style is applied*/
 input[type="radio"]:checked+.questionAnswerLabel {
-background-color: #005f33;
-font-weight: bold;
+    background-color: #005f33;
+    font-weight: bold;
 }
 
 /* questionAnswerLabel: this style is for the boxes that contain the text answers*/
