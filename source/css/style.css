@@ -78,6 +78,7 @@ input {
     background: #22c55e;
     color: white;
     font-size: 15px;
+    border-radius:10px;
 }
 .nextButton:hover{
     transform: scale(1.05);
