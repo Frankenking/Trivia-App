@@ -56,7 +56,8 @@ body {
 
 /* input: this style stops the radio buttons from actually appearing to enable clicking the answer boxes instead */
 input {
-    display: none;
+    opacity: 0;
+    position: absolute;
 }
 
 /* input: when selected this style is applied*/
