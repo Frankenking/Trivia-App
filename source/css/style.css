@@ -51,11 +51,18 @@ body {
     margin-bottom: 20px;
     overflow-wrap: break-word;
     font-weight: bold;
+    border-radius:20px;
 }
 
 /* input: this style stops the radio buttons from actually appearing to enable clicking the answer boxes instead */
 input {
     display: none;
+}
+
+/* input: when selected this style is applied*/
+label:focus-within {
+background-color: #005f33;
+font-weight: bold;
 }
 
 /* questionAnswerLabel: this style is for the boxes that contain the text answers*/
@@ -66,6 +73,7 @@ input {
     border-radius: 10px;
 }
 .questionAnswerLabel:hover{
+    cursor: pointer;
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
@@ -81,6 +89,7 @@ input {
     border-radius:10px;
 }
 .nextButton:hover{
+    cursor: pointer;
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
