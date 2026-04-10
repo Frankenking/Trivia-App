@@ -1,4 +1,4 @@
-
+// Timer
 let timer = 60;
 const display = document.getElementById("timerSectionID");
 const Tleft = setInterval(() =>{
@@ -16,7 +16,8 @@ const Tleft = setInterval(() =>{
     timer--;
   }
 }, 1000);        
-// Timer ^Doing testing rn Hayden
+// Question Pick - Working on - Hayden
+
 
 
 // End quiz
