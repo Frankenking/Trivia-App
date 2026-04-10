@@ -18,7 +18,11 @@ const Tleft = setInterval(() =>{
 }, 1000);
 
 // Question Pick - Working on - Hayden
-
+const displayQ = document.getElementById("questionPromptID");
+const display1 = document.getElementById("questionAnswerOneLabelID");
+const display2 = document.getElementById("questionAnswerTwoLabelID");
+const display3 = document.getElementById("questionAnswerThreeLabelID");
+const display4 = document.getElementById("questionAnswerFourLabelID");
 
 
 // End quiz
