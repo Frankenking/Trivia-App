@@ -1,10 +1,10 @@
 // Timer
 let timer = 60;
-const display = document.getElementById("timerSectionID");
+const displayT = document.getElementById("timerSectionID");
 const Tleft = setInterval(() =>{
   if (timer <= 0){
     clearInterval(Tleft);
-    display.textContent = "Time is up!";
+    displayT.textContent = "Time is up!";
   }
   else {
     let minutes = Math.floor(timer / 60);
@@ -12,10 +12,11 @@ const Tleft = setInterval(() =>{
     let countdownD = 
       String(minutes).padStart(2, "0") + ":" +
       String(seconds).padStart(2, "0");
-    display.textContent = countdownD;
+    displayT.textContent = countdownD;
     timer--;
   }
-}, 1000);        
+}, 1000);
+
 // Question Pick - Working on - Hayden
 
 
