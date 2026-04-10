@@ -1,18 +1,17 @@
-class Timer {
-    constructor(timerSection) {
-        let timer = 60;
-        const Tleft = setInterval(() =>{
-            if (timer <= 0){
-                clearInterval(Tleft);
-                console.log("Time is up!");
-            }
-            else {
-                console.log(timer + " seconds left!");
-                timer--;
-            }
-        }, 1000);
-    }
-} // Working on timer rn ^ Hayden
+
+let timer = 60;
+const display = document.getElementById("timerSectionID");
+const Tleft = setInterval(() =>{
+  if (timer <= 0){
+    clearInterval(Tleft);
+    display.textContent = "Time is up!";
+  }
+  else {
+    display.textContent = timer + " seconds left!";
+    timer--;
+  }
+}, 1000);        
+// Timer ^Doing testing rn Hayden
 
 
 // End quiz
