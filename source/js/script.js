@@ -17,7 +17,7 @@ const Tleft = setInterval(() =>{
   }
 }, 1000);
 
-// Question Pick - Working on - Hayden
+// Question Pick - Working on - Hayden / Alex
 const displayQ = document.getElementById("questionPromptID");
 const display1 = document.getElementById("questionAnswerOneLabelID");
 const display2 = document.getElementById("questionAnswerTwoLabelID");
