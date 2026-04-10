@@ -7,7 +7,12 @@ const Tleft = setInterval(() =>{
     display.textContent = "Time is up!";
   }
   else {
-    display.textContent = timer + " seconds left!";
+    let minutes = Math.floor(timer / 60);
+    let seconds = timer % 60;
+    let countdownD = 
+      String(minutes).padStart(2, "0") + ":" +
+      String(seconds).padStart(2, "0");
+    display.textContent = countdownD;
     timer--;
   }
 }, 1000);        
