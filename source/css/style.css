@@ -18,7 +18,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0f5f3a;
+    background: #01443e;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -108,7 +108,7 @@ input[type="radio"]:checked+.questionAnswerLabel {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #005f33;
+    background: #01443e;
     color: white;
     font-size: 30px;
 }
