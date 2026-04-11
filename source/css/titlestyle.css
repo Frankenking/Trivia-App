@@ -1,0 +1,48 @@
+body{
+    background-color: #3dd0d5;
+}
+
+/* Main card */
+card{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: #2f9696;
+    border-radius: 20px;;
+    display:flex;
+    flex-direction: column;
+    width:60%;
+    max-width: 400px;
+    padding:15px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Welcome text */
+#welcome{
+    font: 40px Arial, Helvetica, sans-serif;
+    color: rgb(45, 29, 62);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font: 30px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+} 
+
+/* Start button */
+#start{
+    text-decoration: none;
+    background-color: #b420d1;
+    color: white;
+    border: 4px solid #390b6d;
+    padding: 15px 30px;
+    text-align: center;
+    font: 17px Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    border-radius: 15px;
+}
+#start:hover{
+    background-color: #390b6d;
+    cursor: pointer;
+    color:#2becec;
+}
