@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia Trials</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<!-- Body Element, uses the grid class -->
+<body class="grid">
+
+    <!-- Header Element, contains the project title element -->
+    <header class="header">
+        <section class="projectTitleSection" id="projectTitleSectionID">
+            Trivia Trials
+        </section>
+    </header>
+
+    <!-- Main Element, uses main class, contains the score and question card-->
+    <section class="main">
+
+        <!-- Score Element, displays the score text -->
+        <div class="scoreLabel" id="scoreDiv">
+            Score:
+        </div>
+
+        <!-- Form Element, a form that contains the question text, 4 radio buttons for each answer, and a next answer button -->
+        <form class="questionSection" id="questionSectionID">
+            <div class="questionPrompt" id="questionPromptID">
+                Question Here
+            </div>
+
+            <input id="questionAnswerOneButton" name="option" value="1" type="radio">
+            <label class="questionAnswerLabel" id="questionAnswerOneLabelID" for="questionAnswerOneButton">
+                Answer 1
+            </label>
+
+            <input id="questionAnswerTwoButton" name="option" value="2" type="radio">
+            <label class="questionAnswerLabel" id="questionAnswerTwoLabelID" for="questionAnswerTwoButton">
+                Answer 2
+            </label>
+
+            <input id="questionAnswerThreeButton" name="option" value="3" type="radio">
+            <label class="questionAnswerLabel" id="questionAnswerThreeLabelID" for="questionAnswerThreeButton">
+                Answer 3
+            </label>
+
+            <input id="questionAnswerFourButton" name="option" value="4" type="radio">
+            <label class="questionAnswerLabel" id="questionAnswerFourLabelID" for="questionAnswerFourButton">
+                Answer 4
+            </label>
+
+            <button type="button" class="nextButton">
+                Submit
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer Element, uses footer class and contains the timer -->
+    <footer class="footer">
+        <!-- Timer Element, used for showing the user the remaining time -->
+        <section class="timerSection" id="timerSectionID">
+            00:00
+        </section>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
