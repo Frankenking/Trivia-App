@@ -2,7 +2,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background: linear-gradient(90deg, #bddeff, #147de6);
+    background: #a9beae;
 }
 /* grid: this style is for the body of the page, divided into three rows */
 .grid {
@@ -18,7 +18,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #01443e;
+    background: #48614f;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -36,7 +36,7 @@ body {
 
 /* questionSection: this stlye is for the background and container that holds the question, answers, and next button, all in an evenly spaced column */
 .questionSection {
-    background: linear-gradient(90deg, #0f2027, #203a43);
+    background: #48614f;
     color: rgb(255, 255, 255);
     padding: 30px;
     height: 70%;
@@ -79,7 +79,7 @@ input[type="radio"]:checked+.questionAnswerLabel {
 }
 .questionAnswerLabel:hover{
     cursor: pointer;
-    background-color: #3f3f3f;
+    background-color: #172b24;
     transform: scale(1.02);
     box-shadow: 0 5px 15px rgba(0,0,0,1);
     transition: transform 0.3s ease;
@@ -90,7 +90,7 @@ input[type="radio"]:checked+.questionAnswerLabel {
     margin-top: 20px;
     padding: 12px;
     border: none;
-    background: #22c55e;
+    background: #06110a;
     color: white;
     font-size: 15px;
     border-radius:10px;
@@ -108,7 +108,7 @@ input[type="radio"]:checked+.questionAnswerLabel {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #01443e;
+    background: #48614f;
     color: white;
     font-size: 30px;
 }
