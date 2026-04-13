@@ -7,10 +7,28 @@
     <link rel="stylesheet" href="./css/titlestyle.css">
 </head>
 <body>
-    <card class="startcard">
-        <h1 id="welcome">Welcome to the Quiz!</h1>
-        <a id="start" href="./quiz">Start Quiz</a>
-    </card>
-    
+<!--Actual content (not decoration, except for arrow in the middle)-->
+    <div class="actual">
+        <h1 id="welcomeMessageID">Welcome to the Quiz!</h1>
+
+        <svg id="arrowID" width="50" height="75" viewBox="0 0 100 100">
+            <polygon points="25,0 75,0 75,50 100,50 50,100 0,50 25,50" fill="none" stroke="#6e8a76" stroke-width="4" />
+        </svg>
+
+        <a href="./quiz" id="startQuizID">Start Quiz</a>
+    </div>
+
+<!--Decoration, like icons or figures-->
+    <div class="decorationsClass">
+        <p id="questionMark1ID">?</p>
+        <p id="questionMark2ID">?</p>
+        <img id="paintPaletteID" src="./images/paint-palette.png" width="120px"/>
+        <img id="bookID" src="./images/open-book.png" width="120px"/>
+        <div id="circle1ID" class="circleClass"></div>
+        <div id="circle2ID" class="circleClass"></div>
+        <div id="circle3ID" class="circleClass"></div>
+        <div id="circle4ID" class="circleClass"></div>
+    </div>
+
 </body>
 </html>
