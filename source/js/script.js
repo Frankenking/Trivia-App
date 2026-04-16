@@ -19,12 +19,12 @@ const Tleft = setInterval(() =>{
 
 // Question Pick - Working on - Hayden / Alex
 function loadQuestion() {
-  const displayQ = document.getElementById("questionPromptID");
+  const displayQ = document.getElementById("questionPromptID"); // Index from json
   displayQ.textContent //Are there any true and false? - Hayden
 }
 
 // Answers
-function loadAnswers() {
+function loadAnswers() { // Load options into each
   const display1 = document.getElementById("questionAnswerOneLabelID");
   const display2 = document.getElementById("questionAnswerTwoLabelID");
   const display3 = document.getElementById("questionAnswerThreeLabelID");
