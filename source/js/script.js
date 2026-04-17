@@ -1,3 +1,6 @@
+// All questions from json
+let jsonData = {}
+
 // Timer
 let timer = 60;
 const displayT = document.getElementById("timerSectionID");
@@ -17,10 +20,27 @@ const Tleft = setInterval(() =>{
   }
 }, 1000);
 
+// Load json using fetch
+function loadJson() {
+  fetch("./json/questions.json").then(response => response.json()).then(data =>
+    {
+      // store questions data in jsonData
+      jsonData = data.questions;
+      loadQuestion();
+      loadAnswers();
+    }
+  )
+}
+
 // Question Pick - Working on - Hayden / Alex
 function loadQuestion() {
   const displayQ = document.getElementById("questionPromptID"); // Index from json
-  displayQ.textContent //Are there any true and false? - Hayden
+  //UNCOMMENT TO TEST
+  // displayQ.textContent = jsonData[0].question;
+  displayQ.textContent = //Are there any true and false? - Hayden | yes - Artyom
+  
+  // i think the easiest way to deal with T/F you can check the length of jsonData[#].options and then hide the bottom 2 answer boxes and set the top 2 to true or false
+  // you should also add a parameter to this function that loads based on id loadQuestion(id) then load by jsonData[id]
 }
 
 // Answers
@@ -29,11 +49,17 @@ function loadAnswers() { // Load options into each
   const display2 = document.getElementById("questionAnswerTwoLabelID");
   const display3 = document.getElementById("questionAnswerThreeLabelID");
   const display4 = document.getElementById("questionAnswerFourLabelID");
+
+  //UNCOMMENT TO TEST
+  //display1.textContent = jsonData[0].options[0];
+  //display2.textContent = jsonData[0].options[1];
+  //display3.textContent = jsonData[0].options[2];
+  //display4.textContent = jsonData[0].options[3];
 }
 
 // End quiz
 function endQuiz() {
-  clearInterval(timer);
+  clearInterval(Tleft);
   document.getElementById("quiz-box").classList.add("hidden");
   nextBtn.classList.add("hidden");
 
@@ -57,6 +83,9 @@ function loadBestScore() {
   let best = localStorage.getItem("bestScore") || 0;
   bestScoreEl.textContent = best;
 }
+
+// Load Json
+loadJson();
 
 // Load best score on start
 loadBestScore();
