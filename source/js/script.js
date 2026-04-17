@@ -136,4 +136,3 @@ loadJson();
 loadBestScore();
 
 
-//Alex still working on score calculation and local storage^^^
