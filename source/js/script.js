@@ -34,6 +34,7 @@ function loadJson() {
 
 // Question Pick
 let curQuestion = 0;
+let score = 0;
 function loadQuestion() {
   const displayQ = document.getElementById("questionPromptID");
   displayQ.textContent = jsonData[curQuestion].question;
@@ -48,7 +49,7 @@ function loadAnswers() { // Load options into each
   const display3 = document.getElementById("questionAnswerThreeLabelID");
   const display4 = document.getElementById("questionAnswerFourLabelID");
   // Index+ Options
-  const options = jsonData[curQuestion].options;
+  const options = jsonData[curQuestion].options; // Thinking of a question limiter cause it will load all 100 right now - Hayden
   display1.textContent = options[0];
   display2.textContent = options[1];
   display3.textContent = options[2];
@@ -62,6 +63,10 @@ document.getElementById("submit").addEventListener("click", () => {
     alert("Select a answer!");
     return;
   }
+  const selectionOP = jsonData[curQuestion].options[selection.value - 1];
+  if (selectionOP === jsonData[curQuestion].answer) {
+    score++;
+  }
   curQuestion++;
   // Checks Json length
   if(curQuestion >= jsonData.length){
@@ -69,7 +74,7 @@ document.getElementById("submit").addEventListener("click", () => {
     return;
   }
   document.querySelectorAll('input[name="option"]').forEach(r => r.checked = false);
-  loadQuestion(); // Next Question & Options
+  loadQuestion(); // Next Question & Options Load
   loadAnswers();
 });
 // Answer Selection Listeners
@@ -115,6 +120,9 @@ function saveScore(score) {
   if (score > best) {
     localStorage.setItem("bestScore", score);
   }
+}
+function loadScore(){
+  document.getElementById("scoreDiv").textContent = `Score: ${score}`;
 }
 function loadBestScore() {
   let best = localStorage.getItem("bestScore") || 0;
