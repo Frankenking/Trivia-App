@@ -32,15 +32,13 @@ function loadJson() {
   )
 }
 
-// Question Pick - Working on - Hayden / Alex
+// Question Pick
+let curQuestion = 0;
 function loadQuestion() {
-  const displayQ = document.getElementById("questionPromptID"); // Index from json
-  //UNCOMMENT TO TEST
-  // displayQ.textContent = jsonData[0].question;
-  displayQ.textContent = //Are there any true and false? - Hayden | yes - Artyom
+  const displayQ = document.getElementById("questionPromptID");
+  displayQ.textContent = jsonData[curQuestion].question;
   
   // i think the easiest way to deal with T/F you can check the length of jsonData[#].options and then hide the bottom 2 answer boxes and set the top 2 to true or false
-  // you should also add a parameter to this function that loads based on id loadQuestion(id) then load by jsonData[id]
 }
 
 // Answers
@@ -49,13 +47,52 @@ function loadAnswers() { // Load options into each
   const display2 = document.getElementById("questionAnswerTwoLabelID");
   const display3 = document.getElementById("questionAnswerThreeLabelID");
   const display4 = document.getElementById("questionAnswerFourLabelID");
-
-  //UNCOMMENT TO TEST
-  //display1.textContent = jsonData[0].options[0];
-  //display2.textContent = jsonData[0].options[1];
-  //display3.textContent = jsonData[0].options[2];
-  //display4.textContent = jsonData[0].options[3];
+  // Index+ Options
+  const options = jsonData[curQuestion].options;
+  display1.textContent = options[0];
+  display2.textContent = options[1];
+  display3.textContent = options[2];
+  display4.textContent = options[3];
 }
+// Submit Button + Next Question loader
+document.getElementById("submit").addEventListener("click", () => {
+  const selection = [...document.querySelectorAll('input[name="option"]')]
+  .find(r => r.checked && r.offsetParent !== null);
+  if (!selection){
+    alert("Select a answer!");
+    return;
+  }
+  curQuestion++;
+  // Checks Json length
+  if(curQuestion >= jsonData.length){
+    alert("Quiz Complete!");
+    return;
+  }
+  document.querySelectorAll('input[name="option"]').forEach(r => r.checked = false);
+  loadQuestion(); // Next Question & Options
+  loadAnswers();
+});
+// Answer Selection Listeners
+document.querySelectorAll(".option").forEach((option, i) => {
+  option.addEventListener("click", () => {
+    if (option.style.display === "none") return;
+    const radios = document.querySelectorAll('input[name="option"]');
+    const labels = document.querySelectorAll('.questionAnswerLabel');
+    const options = jsonData[currentQuestion].options;
+    // Radio Buttons
+    radios.forEach((radio, i) => {
+      if (options[i]) {
+        radio.disabled = false;
+        radio.parentElement.style.display = "inline";
+        labels[i].textContent = options[i];
+      } else {
+        radio.disabled = true;
+        radio.checked = false;
+        radio.parentElement.style.display = "none";
+      }
+    });
+});
+});
 
 // End quiz
 function endQuiz() {
