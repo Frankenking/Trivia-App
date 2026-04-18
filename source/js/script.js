@@ -8,6 +8,7 @@ const Tleft = setInterval(() =>{
   if (timer <= 0){
     clearInterval(Tleft);
     displayT.textContent = "Time is up!";
+    endQuiz()
   }
   else {
     let minutes = Math.floor(timer / 60);
@@ -101,13 +102,16 @@ document.querySelectorAll(".option").forEach((option, i) => {
 
 // End quiz
 function endQuiz() {
-  clearInterval(Tleft);
-  document.getElementById("quiz-box").classList.add("hidden");
-  nextBtn.classList.add("hidden");
 
-  resultEl.classList.remove("hidden");
+  // updated some of the ids and added hidden class to css so your classList.add works
+  // we dont have a length of all the questions yet so i removed that part from the end of ln 144
+
+  clearInterval(Tleft);
+  document.getElementById("questionSectionID").classList.add("hidden");
+
+  const resultEl = document.getElementById("scoreDiv");
   resultEl.innerHTML = `
-    <h2>Your Score: ${score}/${questions.length}</h2>
+    <h1>Your Score: ${score}<h1>
   `;
 
   saveScore(score);
@@ -126,7 +130,8 @@ function loadScore(){
 }
 function loadBestScore() {
   let best = localStorage.getItem("bestScore") || 0;
-  bestScoreEl.textContent = best;
+  const bestScoreEl = document.getElementById("bestScoreDiv"); // added new bestscore element at the bottom
+  bestScoreEl.textContent = `Best Score: ${best}`;
 }
 
 // Load Json

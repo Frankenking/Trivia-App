@@ -47,7 +47,7 @@ body {
 }
 /* scoreLabel: this style is for the score text above the question container section*/
 .scoreLabel {
-    margin-bottom: 10px;
+    margin: 10px;
     font-size: 20px;
 }
 /* questionPrompt: this style is for the actual question being asked, bigger font size, bolded, and a world overflow incase of a long quesiton */
@@ -111,4 +111,9 @@ input[type="radio"]:checked+.questionAnswerLabel {
     background: #48614f;
     color: white;
     font-size: 30px;
+}
+
+/* hidden: used for hiding elements by adding this class to them */
+.hidden {
+    display: none;
 }
