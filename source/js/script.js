@@ -1,5 +1,5 @@
 // All questions from json
-let jsonData = {}
+let jsonData = [];
 
 // Timer
 let timer = 60;
@@ -22,15 +22,11 @@ const Tleft = setInterval(() =>{
 }, 1000);
 
 // Load json using fetch
-function loadJson() {
-  fetch("./json/questions.json").then(response => response.json()).then(data =>
-    {
-      // store questions data in jsonData
-      jsonData = data.questions;
-      loadQuestion();
-      loadAnswers();
-    }
-  )
+async function loadJson() {
+  const response = await fetch("./json/questions.json");
+  const data = await response.json();
+
+  jsonData = data.questions;
 }
 
 // Question Pick
@@ -136,6 +132,11 @@ function loadBestScore() {
 
 // Load Json
 loadJson();
+
+// insert random selection here before the answers and question is loaded
+
+loadQuestion();
+loadAnswers();
 
 // Load best score on start
 loadBestScore();
