@@ -115,5 +115,5 @@ input[type="radio"]:checked+.questionAnswerLabel {
 
 /* hidden: used for hiding elements by adding this class to them */
 .hidden {
-    display: none;
+    display: none !important;
 }

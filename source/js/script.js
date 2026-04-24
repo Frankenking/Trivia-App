@@ -1,6 +1,6 @@
 // All questions from json
 let jsonData = [];
-
+const QUESTION_LIMIT = 10;
 // Timer
 let timer = 60;
 const displayT = document.getElementById("timerSectionID");
@@ -23,33 +23,26 @@ const Tleft = setInterval(() =>{
 
 // Load json using fetch
 async function loadJson() {
-  const response = await fetch("./json/questions.json");
+  const response = await fetch("./json/questions.json"); 
   const data = await response.json();
 
-  jsonData = data.questions;
+  jsonData = shuffleArray(data.questions).slice(0, QUESTION_LIMIT);
+  
+  loadQuestion();
+  loadAnswers();
 }
+
 // Added random function
-  function shuffleArray(arr) {
+function shuffleArray(arr) {
   return arr.sort(() => Math.random() - 0.5);
 }
+
 // Question Pick
 let curQuestion = 0;
 let score = 0;
 function loadQuestion() {
   const displayQ = document.getElementById("questionPromptID");
   displayQ.textContent = jsonData[curQuestion].question;
-  
-  questions = shuffleArray(data);
-
-  // Apply limiter 
-  const limit = Math.min(QUESTION_LIMIT, questions.length);
-  selectedQuestions = questions.slice(0, limit);
-
-  currentQuestionIndex = 0;
-  score = 0;
-
-  showQuestion();
-  startTimer();
 }
 
 // i think the easiest way to deal with T/F you can check the length of jsonData[#].options and then hide the bottom 2 answer boxes and set the top 2 to true or false
@@ -57,19 +50,28 @@ function loadQuestion() {
 
 // Answers
 function loadAnswers() { // Load options into each
-  const display1 = document.getElementById("questionAnswerOneLabelID");
-  const display2 = document.getElementById("questionAnswerTwoLabelID");
-  const display3 = document.getElementById("questionAnswerThreeLabelID");
-  const display4 = document.getElementById("questionAnswerFourLabelID");
-  // Index+ Options
-  const options = jsonData[curQuestion].options; // Thinking of a question limiter cause it will load all 100 right now - Hayden
-  display1.textContent = options[0];
-  display2.textContent = options[1];
-  display3.textContent = options[2];
-  display4.textContent = options[3];
+  const options = jsonData[curQuestion].options;
+  const labels = [
+    document.getElementById("questionAnswerOneLabelID"),
+    document.getElementById("questionAnswerTwoLabelID"),
+    document.getElementById("questionAnswerThreeLabelID"),
+    document.getElementById("questionAnswerFourLabelID")
+  ];
+
+  labels.forEach((label, i) => {
+    const parentContainer = label.parentElement;
+    if (options[i]) {
+      label.textContent = options[i];
+      parentContainer.style.display = "flex";
+    } else {
+      parentContainer.style.display = "none";
+    }
+  });
 }
+
 // Submit Button + Next Question loader
 document.getElementById("submit").addEventListener("click", () => {
+  const resultEl = document.getElementById("scoreDiv");
   const selection = [...document.querySelectorAll('input[name="option"]')]
   .find(r => r.checked && r.offsetParent !== null);
   if (!selection){
@@ -79,11 +81,15 @@ document.getElementById("submit").addEventListener("click", () => {
   const selectionOP = jsonData[curQuestion].options[selection.value - 1];
   if (selectionOP === jsonData[curQuestion].answer) {
     score++;
+    resultEl.innerHTML = `
+    Score: ${score}
+  `;
   }
   curQuestion++;
   // Checks Json length
   if(curQuestion >= jsonData.length){
     alert("Quiz Complete!");
+    endQuiz();
     return;
   }
   document.querySelectorAll('input[name="option"]').forEach(r => r.checked = false);
@@ -148,11 +154,6 @@ function loadBestScore() {
 
 // Load Json
 loadJson();
-
-// insert random selection here before the answers and question is loaded
-
-loadQuestion();
-loadAnswers();
 
 // Load best score on start
 loadBestScore();
