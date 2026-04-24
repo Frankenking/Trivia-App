@@ -28,7 +28,10 @@ async function loadJson() {
 
   jsonData = data.questions;
 }
-
+// Added random function
+  function shuffleArray(arr) {
+  return arr.sort(() => Math.random() - 0.5);
+}
 // Question Pick
 let curQuestion = 0;
 let score = 0;
@@ -36,8 +39,21 @@ function loadQuestion() {
   const displayQ = document.getElementById("questionPromptID");
   displayQ.textContent = jsonData[curQuestion].question;
   
-  // i think the easiest way to deal with T/F you can check the length of jsonData[#].options and then hide the bottom 2 answer boxes and set the top 2 to true or false
+  questions = shuffleArray(data);
+
+  // Apply limiter 
+  const limit = Math.min(QUESTION_LIMIT, questions.length);
+  selectedQuestions = questions.slice(0, limit);
+
+  currentQuestionIndex = 0;
+  score = 0;
+
+  showQuestion();
+  startTimer();
 }
+
+// i think the easiest way to deal with T/F you can check the length of jsonData[#].options and then hide the bottom 2 answer boxes and set the top 2 to true or false
+
 
 // Answers
 function loadAnswers() { // Load options into each
