@@ -50,7 +50,15 @@ function loadQuestion() {
 
 // Answers
 function loadAnswers() { // Load options into each
-  const options = jsonData[curQuestion].options;
+const options = jsonData[curQuestion].options;
+
+  const radios = [
+    document.getElementById("questionAnswerOneButton"),
+    document.getElementById("questionAnswerTwoButton"),
+    document.getElementById("questionAnswerThreeButton"),
+    document.getElementById("questionAnswerFourButton")
+  ];
+
   const labels = [
     document.getElementById("questionAnswerOneLabelID"),
     document.getElementById("questionAnswerTwoLabelID"),
@@ -58,15 +66,22 @@ function loadAnswers() { // Load options into each
     document.getElementById("questionAnswerFourLabelID")
   ];
 
-  labels.forEach((label, i) => {
-    const parentContainer = label.parentElement;
+  for (let i = 0; i < 4; i++) {
     if (options[i]) {
-      label.textContent = options[i];
-      parentContainer.style.display = "flex";
+      labels[i].textContent = options[i];
+
+      // show both input + label
+      radios[i].style.display = "inline";
+      labels[i].style.display = "block";
     } else {
-      parentContainer.style.display = "none";
+      // hide both input + label
+      radios[i].style.display = "none";
+      labels[i].style.display = "none";
+
+      // also reset hidden radios
+      radios[i].checked = false;
     }
-  });
+  }
 }
 
 // Submit Button + Next Question loader
