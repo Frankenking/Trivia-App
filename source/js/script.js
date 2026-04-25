@@ -102,7 +102,7 @@ document.querySelectorAll(".option").forEach((option, i) => {
     if (option.style.display === "none") return;
     const radios = document.querySelectorAll('input[name="option"]');
     const labels = document.querySelectorAll('.questionAnswerLabel');
-    const options = jsonData[currentQuestion].options;
+    const options = jsonData[curQuestion].options;
     // Radio Buttons
     radios.forEach((radio, i) => {
       if (options[i]) {
