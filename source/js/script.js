@@ -1,6 +1,6 @@
 // All questions from json
 let jsonData = [];
-const QUESTION_LIMIT = 10;
+const QUESTION_LIMIT = 100;
 // Timer
 let timer = 60;
 const displayT = document.getElementById("timerSectionID");
@@ -70,15 +70,12 @@ const options = jsonData[curQuestion].options;
     if (options[i]) {
       labels[i].textContent = options[i];
 
-      // show both input + label
-      radios[i].style.display = "inline";
-      labels[i].style.display = "block";
+      radios[i].style.display = "flex";
+      labels[i].style.display = "flex";
     } else {
-      // hide both input + label
       radios[i].style.display = "none";
       labels[i].style.display = "none";
 
-      // also reset hidden radios
       radios[i].checked = false;
     }
   }
@@ -122,7 +119,7 @@ document.querySelectorAll(".option").forEach((option, i) => {
     radios.forEach((radio, i) => {
       if (options[i]) {
         radio.disabled = false;
-        radio.parentElement.style.display = "inline";
+        radio.parentElement.style.display = "flex";
         labels[i].textContent = options[i];
       } else {
         radio.disabled = true;
