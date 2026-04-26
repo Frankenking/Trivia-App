@@ -66,9 +66,15 @@ const options = jsonData[curQuestion].options;
     document.getElementById("questionAnswerFourLabelID")
   ];
 
+  //gets random order, except for true/false questions
+  let order= [0,1,2,3];
+  if (options.length === 4) {
+    order= shuffleArray(order);
+  }
+  
   for (let i = 0; i < 4; i++) {
     if (options[i]) {
-      labels[i].textContent = options[i];
+      labels[i].textContent = options[order[i]];
 
       radios[i].style.display = "flex";
       labels[i].style.display = "flex";
@@ -90,7 +96,7 @@ document.getElementById("submit").addEventListener("click", () => {
     alert("Select a answer!");
     return;
   }
-  const selectionOP = jsonData[curQuestion].options[selection.value - 1];
+  const selectionOP = document.querySelector('input[name="option"]:checked').labels[0].innerText;
   if (selectionOP === jsonData[curQuestion].answer) {
     score++;
     resultEl.innerHTML = `
