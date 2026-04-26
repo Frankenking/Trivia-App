@@ -111,7 +111,7 @@ body{
     border-width: 4px;
     border-style: solid;
     position: fixed;
-    z-index:-1;
+    z-index:-2;
 }
 
 #circle1ID{
@@ -160,6 +160,50 @@ body{
     top:80%;
     left:5%;
     translate: 0px 0px;
+    width:100px;
+}
+
+#welcomeMessageID{
+    font-size: 50px;
+    padding:20px;
+
+}
+
+#circle1ID{
+    top: -40%;
+    right:-650px;
+}
+
+#circle2ID{
+    top: -70%;
+}
+
+#circle3ID{
+    width: 600px;
+    left:-260px;
+}
+
+#circle4ID{
+    top: 55%;
+    left:-300px;
+}
+
+#arrowID{
+    width:40px;
+}
+
+#questionMark1ID{
+    translate: 100px -300px;
+}
+
+#questionMark2ID{
+    translate: 130px -130px;
+}
+
+#paintPaletteID{
+    translate: 70px 100px;
+    width:100px;
+    z-index:-1;
 }
 
 }
